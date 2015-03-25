@@ -35,7 +35,9 @@ public class EnemyGenerator : MonoBehaviour {
 		__---__
 	*/
 	private void GenerateEnemy1(){
-		GameObject enemy = Instantiate(Resources.Load("prefab/enemy1", typeof(GameObject)))as GameObject;
+		Vector3 rot = transform.rotation.eulerAngles;
+		rot = new Vector3(rot.x, rot.y, rot.z + 180);
+		GameObject enemy = Instantiate(Resources.Load("prefab/enemy1", typeof(GameObject)), new Vector3(0.0f, 0.0f, 100.0f), Quaternion.Euler(rot))as GameObject;
 	}
 
 }
