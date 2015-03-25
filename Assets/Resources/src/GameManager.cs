@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour {
 	
 	private static GameManager _instance;
 	private static bool debug = false;
-	public static float enemy_dificulty_velocity = 2;
+	public static float enemy_dificulty_velocity = 0.2f;
 	
 	public static GameManager instance{
 		get{
