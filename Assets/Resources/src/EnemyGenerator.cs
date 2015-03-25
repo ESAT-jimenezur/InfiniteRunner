@@ -35,7 +35,7 @@ public class EnemyGenerator : MonoBehaviour {
 		__---__
 	*/
 	private void GenerateEnemy1(){
-		GameObject enemy = Instantiate(Resources.Load("prefab/Player", typeof(GameObject)))as GameObject;
+		GameObject enemy = Instantiate(Resources.Load("prefab/enemy1", typeof(GameObject)))as GameObject;
 	}
 
 }
