@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour {
 
 
-	private float velocity = 2.0f;
+	private float velocity = 2.5f;
 	private float acceleration = 0.0f;
 
 	private GameObject player, cube1, cube2;
