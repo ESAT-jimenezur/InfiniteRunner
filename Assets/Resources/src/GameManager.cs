@@ -5,7 +5,10 @@ public class GameManager : MonoBehaviour {
 	
 	private static GameManager _instance;
 	private static bool debug = false;
-	public static float enemy_dificulty_velocity = 0.2f;
+	public static int score = 0;
+	public static bool game_is_playing = true;
+	public static float enemy_start_dificulty_velocity = 0.2f;
+	public static float enemy_dificulty_velocity = enemy_start_dificulty_velocity;
 	
 	public static GameManager instance{
 		get{
@@ -18,9 +21,7 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	public static void init(){
-		
-		//Add player to the map
-		//GameObject player = Instantiate(Resources.Load("prefabs/Player"), new Vector3(0.0f, 2.0f, 0.0f), Quaternion.identity) as GameObject;
+
 	}
 	
 	void Awake () {
@@ -31,9 +32,21 @@ public class GameManager : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
+
+	public static void Restart(){
+		score = 0;
+		game_is_playing = true;
+		enemy_dificulty_velocity = enemy_start_dificulty_velocity;
+		Application.LoadLevel(0);
+	}
 	
 	
 	void Update(){
+		if(score >= 10){
+			enemy_dificulty_velocity += 0.1f;
+		}else if(score >= 25){
+			enemy_dificulty_velocity += 0.15f;
+		}
 
 	}
 	

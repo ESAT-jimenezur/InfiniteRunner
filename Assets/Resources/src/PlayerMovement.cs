@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour {
 
 
 	void Update () {
-		Control ();
+		if(GameManager.game_is_playing){
+			Control ();
+	
+		}
 	}
 
 	private void Control(){

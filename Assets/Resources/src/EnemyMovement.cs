@@ -4,11 +4,13 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour {
 	
 	void Update() {
-		transform.Translate(Vector3.back * GameManager.enemy_dificulty_velocity);
+		if(GameManager.game_is_playing){
+			transform.Translate(Vector3.back * GameManager.enemy_dificulty_velocity);
 
-		if (transform.position.z <= -50) {
-			Destroy(gameObject);
+			if (transform.position.z <= -5) {
+				GameManager.score += 1;
+				Destroy(gameObject);
+			}
 		}
-
 	}
 }
