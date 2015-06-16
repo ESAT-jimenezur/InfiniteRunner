@@ -4,9 +4,10 @@ using System.Collections;
 public class GUIManager : MonoBehaviour {
 
 	private Rect score_position = new Rect(Screen.width - 150, 35, 200, 80);
+	private Rect level_position = new Rect(Screen.width - 150, 75, 200, 80);
 	private GUIStyle gui_style = new GUIStyle();
 	private Font caviar_dreams;
-	private string gui_score_text;
+	private string gui_score_text, gui_level_text;
 
 	void Awake(){
 		caviar_dreams = Resources.Load("fonts/CaviarDreams") as Font;
@@ -18,9 +19,11 @@ public class GUIManager : MonoBehaviour {
 
 	void OnGUI(){
 		gui_score_text =  "Score: " + GameManager.score.ToString();
+		gui_level_text =  "Level: " + GameManager.difficulty_level.ToString();
 
 		//Show Score
 		GUI.Label(score_position, gui_score_text, gui_style);
+		GUI.Label(level_position, gui_level_text, gui_style);
 
 		if(GameManager.game_is_playing == false){
 			ShowDeathMenu();
